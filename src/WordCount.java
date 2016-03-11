@@ -6,21 +6,19 @@ import java.io.IOException;
 
 public class WordCount {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		File f = new File("input.txt");
 		int c = 0; //word oount
 			FileReader fr = new FileReader(f);
 			BufferedReader reader = new BufferedReader(fr);
 			String l; // file line
+			String punc = ",.;'-";
+			String res = "";
 			try {
 				while ((l = reader.readLine()) != null) {
-					
-					for (int i = 0; i < l.length(); i++) {
-						if (l.charAt(i) == ' ') {
-							c++;
-						}
-					}
+					l.replaceAll(" +",  " ");
+					res = res + l.split(" ");
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -30,10 +28,10 @@ public class WordCount {
 				reader.close();
 				fr.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println(c);
+			
+			System.out.println(res.length());
 	} 
 		
 	}
