@@ -9,8 +9,7 @@ public class WordCount {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		File f = new File("input.txt");
-		int c = 0; //word oounter
-		try {
+		int c = 0; //word oount
 			FileReader fr = new FileReader(f);
 			BufferedReader reader = new BufferedReader(fr);
 			String l; // file line
@@ -18,7 +17,7 @@ public class WordCount {
 				while ((l = reader.readLine()) != null) {
 					
 					for (int i = 0; i < l.length(); i++) {
-						if (l.charAt(i) = ' ') {
+						if (l.charAt(i) == ' ') {
 							c++;
 						}
 					}
@@ -27,13 +26,16 @@ public class WordCount {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			reader.close();
-			fr.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(c);
+			try {
+				reader.close();
+				fr.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(c);
+	} 
+		
 	}
 
-}
+
