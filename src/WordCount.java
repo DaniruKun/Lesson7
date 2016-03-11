@@ -7,21 +7,19 @@ import java.io.IOException;
 public class WordCount {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		// TODO Auto-generated method stub
-		File f = new File("input.txt");
-		int c = 0; //word oount
+		
+		File f = new File("input.txt");			
 			FileReader fr = new FileReader(f);
 			BufferedReader reader = new BufferedReader(fr);
 			String l; // file line
-			String punc = ",.;'-";
-			String res = "";
+			String res = "";		 
 			try {
 				while ((l = reader.readLine()) != null) {
+					l.replaceAll(",", " ");
 					l.replaceAll(" +",  " ");
 					res = res + l.split(" ");
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
@@ -30,10 +28,8 @@ public class WordCount {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 			System.out.println(res.length());
 	} 
-		
-	}
+}
 
 
