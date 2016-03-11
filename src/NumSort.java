@@ -28,7 +28,20 @@ public class NumSort {
 			for (int i = 0; i < input.length(); i++) { //write line contents to array as signed integers
 				numberArray[i] = Integer.parseInt(input, i);
 			}
+			Integer temp;
+			for (int i = 0; i < numberArray.length; i++) {
+				if (numberArray[i+1] < numberArray[i]) {
+					temp = numberArray[i];
+					numberArray[i] = numberArray[i+1];
+					numberArray[i+1] = temp;
+				}
+				
+			}
 			
+			fw.close();
+			fr.close();
+			reader.close();
+			writer.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,7 +50,7 @@ public class NumSort {
 			e.printStackTrace();
 		}
 		
-
+		
 	}
 
 }
